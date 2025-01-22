@@ -20,4 +20,4 @@ ENV PATH="/app/.venv/bin:$PATH"
 
 EXPOSE 10000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000", "--proxy-headers"]
+CMD ["uvicorn", "main:app", "--host=0.0.0.0", "--reload", "--port=10000"]
