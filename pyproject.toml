@@ -7,5 +7,4 @@ requires-python = ">=3.10,<=3.13"
 dependencies = [
     "crawl4ai>=0.4.247",
     "fastapi[standard]>=0.115.6",
-    "uvicorn[standard]>=0.27.0",
 ]
