@@ -1,0 +1,2 @@
+crawl4ai>=0.4.247
+fastapi[standard]>=0.115.6
