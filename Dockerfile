@@ -2,8 +2,9 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-# Install system dependencies for Playwright
+# Install system dependencies for Playwright and Git for GitIngest
 RUN apt-get update && apt-get install -y \
+    git \
     libglib2.0-0 \
     libnss3 \
     libnspr4 \
