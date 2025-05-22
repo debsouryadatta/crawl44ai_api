@@ -1,3 +1,5 @@
 crawl4ai>=0.4.247
 fastapi[standard]>=0.115.6
 uvicorn>=0.34.0
+asyncio>=3.4.3
+gitingest>=0.1.4
