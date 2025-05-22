@@ -2,13 +2,14 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-# First update and install Git only
+# Install Git and verify it's installed
 RUN apt-get update && \
-    apt-get install -y git && \
+    apt-get install -y --no-install-recommends git && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    git --version
 
-# Then install Playwright dependencies
+# Install Playwright dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     libglib2.0-0 \
@@ -37,10 +38,10 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install -r requirements.txt
-
-RUN playwright install
+# Verify Git path and version after Python dependencies are installed
+RUN which git && git --version
 
 COPY . .
 
