@@ -2,9 +2,15 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-# Install system dependencies for Playwright and Git for GitIngest
-RUN apt-get update && apt-get install -y \
-    git \
+# First update and install Git only
+RUN apt-get update && \
+    apt-get install -y git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Then install Playwright dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     libglib2.0-0 \
     libnss3 \
     libnspr4 \
@@ -26,8 +32,9 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 \
     libcairo2 \
     libasound2 \
-    libatspi2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
+    libatspi2.0-0 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
 
