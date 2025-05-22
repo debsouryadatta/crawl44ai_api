@@ -155,6 +155,15 @@ wheels = [
 ]
 
 [[package]]
+name = "asyncio"
+version = "3.4.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/da/54/054bafaf2c0fb8473d423743e191fcdf49b2c1fd5e9af3524efbe097bafd/asyncio-3.4.3.tar.gz", hash = "sha256:83360ff8bc97980e4ff25c964c7bd3923d333d177aa4f7fb736b019f26c7cb41", size = 204411 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/22/74/07679c5b9f98a7cb0fc147b1ef1cc1853bc07a4eb9cb5731e24732c5f773/asyncio-3.4.3-py3-none-any.whl", hash = "sha256:c4d18b22701821de07bd6aea8b53d21449ec0ec5680645e5317062ea21817d2d", size = 101767 },
+]
+
+[[package]]
 name = "attrs"
 version = "24.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -328,14 +337,18 @@ name = "crawl44ai"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "asyncio" },
     { name = "crawl4ai" },
     { name = "fastapi", extra = ["standard"] },
+    { name = "gitingest" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "asyncio", specifier = ">=3.4.3" },
     { name = "crawl4ai", specifier = ">=0.4.247" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.6" },
+    { name = "gitingest", specifier = ">=0.1.4" },
 ]
 
 [[package]]
@@ -581,6 +594,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ee/11/de70dee31455c546fbc88301971ec03c328f3d1138cfba14263f651e9551/fsspec-2024.12.0.tar.gz", hash = "sha256:670700c977ed2fb51e0d9f9253177ed20cbde4a3e5c0283cc5385b5870c8533f", size = 291600 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/de/86/5486b0188d08aa643e127774a99bac51ffa6cf343e3deb0583956dca5b22/fsspec-2024.12.0-py3-none-any.whl", hash = "sha256:b520aed47ad9804237ff878b504267a3b0b441e97508bd6d2d8774e3db85cee2", size = 183862 },
+]
+
+[[package]]
+name = "gitingest"
+version = "0.1.4"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "click" },
+    { name = "tiktoken" },
+    { name = "tomli" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b1/ff/d94a7dd5ce2437efa020d57cd5eb8d1f9ac31c6bf8c4ce98dab63890f549/gitingest-0.1.4.tar.gz", hash = "sha256:b3e537bb38152c48084dcb745e4d32665271a5f16306182628c69d39f615e427", size = 40590 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/72/2b/df9747f305cd384c36b791121b150ab00d399e20b0b679f0966d3e6588a7/gitingest-0.1.4-py3-none-any.whl", hash = "sha256:0f61f8a98aa527613fde5c3ae13243f42c2e9698fbbe7c0794f19bc62eedc093", size = 40826 },
 ]
 
 [[package]]
